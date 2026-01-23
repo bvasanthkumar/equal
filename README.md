@@ -152,7 +152,7 @@ curl http://localhost:8080/octocat
 ### 1. Create Virtual Environment
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate   # Linux / Mac
 venv\Scripts\activate    # Windows
 ```
@@ -160,7 +160,7 @@ venv\Scripts\activate    # Windows
 ### 2. Install Dependencies
 
 ```bash
-pip install -r requirements-dev.txt
+pip3 install -r requirements-dev.txt
 ```
 
 ### 3. Run tests
