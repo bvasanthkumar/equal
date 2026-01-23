@@ -51,7 +51,9 @@ Built using **FastAPI**, tested with **Pytest**, and packaged using a **secure, 
 
 ---
 
-## API Endpoint
+## API Endpoints
+
+### Get user’s publicly available Gists
 
 ```
 GET /<username>
@@ -97,11 +99,24 @@ GET /octocat
 }
 ```
 
+### Health check
+
+```
+GET /health
+```
+
+
+### Sample Response
+
+```json
+{"status":"ok"}
+```
+
 ---
 
 ## Setup & Run (Local)
 
-###Prerequisite
+### Prerequisite
 
 ```bash
 python 3.13
