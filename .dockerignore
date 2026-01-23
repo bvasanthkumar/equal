@@ -1,0 +1,13 @@
+# Folders to ignore
+venv/
+.venv/
+__pycache__/
+.git/
+.pytest_cache/
+
+# Files to ignore
+test_api.py
+requirements-dev.txt
+.DS_Store
+README.md
+.gitignore

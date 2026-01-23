@@ -41,3 +41,115 @@ Equal Experts
 __________________________________________
 [^1]: For example Go, Python or Ruby but not Bash or Powershell.  
 [^2]: https://docs.github.com/en/rest/gists/gists?apiVersion=2022-11-28
+
+# GitHub Gist API (Solution)
+
+#### Project Overview
+
+A simple HTTP API that fetches and returns a list of a GitHub user’s **publicly available Gists**.
+Built using **FastAPI**, tested with **Pytest**, and packaged using a **secure, minimal Docker container** that runs on port **8080**.
+
+---
+
+## API Endpoint
+
+```
+GET /<username>
+```
+
+### Example Request
+
+```
+GET /octocat
+```
+
+### Sample Response
+
+```json
+{
+  "user": "octocat",
+  "public_gists": [
+    {
+      "id": "6cad326836d38bd3a7ae",
+      "description": "Hello world!",
+      "url": "https://gist.github.com/octocat/6cad326836d38bd3a7ae",
+      "files": [
+        "hello_world.rb"
+      ]
+    },
+    {
+      "id": "0831f3fbd83ac4d46451",
+      "description": "",
+      "url": "https://gist.github.com/octocat/0831f3fbd83ac4d46451",
+      "files": [
+        "git-author-rewrite.sh"
+      ]
+    },
+    {
+      "id": "1305321",
+      "description": null,
+      "url": "https://gist.github.com/octocat/1305321",
+      "files": [
+        "test.cs"
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## Setup & Run (Local)
+
+###Prerequisite
+
+```bash
+python 3.13
+Docker
+```
+
+---
+
+## Run Using Docker
+
+### Build Image
+
+```bash
+docker build -t gist-api .
+```
+
+### Run Container
+
+```bash
+docker run -p 8080:8080 gist-api
+```
+
+### Call API
+
+```bash
+curl http://localhost:8080/octocat
+```
+
+---
+
+## Run Automated Tests
+
+### 1. Create Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate    # Windows
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+### 3. Run tests
+
+```bash
+pytest
+```
