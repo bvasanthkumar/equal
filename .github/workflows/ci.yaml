@@ -25,8 +25,8 @@ jobs:
       
       - name: Run unit testcase
         run: |
-          pip install requirements.txt
-          python test_api.py
+          pip install -r requirements-dev.txt
+          pytest
 
       - name: Docker build
         run: |
