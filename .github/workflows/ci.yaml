@@ -30,8 +30,14 @@ jobs:
 
       - name: Docker build
         run: |
-          docker build -t gist-api .
+          docker build -t vasanth0102/equal:v1 .
        
+      - name: Docker push 
+        run: |
+          docker login -u vasanth0102 -p ${{ secrets.DOCKER_TOKEN }}
+          docker push vasanth0102/equal:v1
+
+
 
       
 
