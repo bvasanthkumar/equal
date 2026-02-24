@@ -1,0 +1,39 @@
+#- input
+#- git checkout 
+#- install dependencies
+#- run unit case
+#
+#- docker build 
+#- container scans
+#- ecr , jforg
+
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out repository code
+        uses: actions/checkout@v5
+
+      - name: Install python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11' 
+      
+      - name: Run unit testcase
+        run: |
+          pip install requirements.txt
+          python test_api.py
+
+      - name: Docker build
+        run: |
+          docker build -t gist-api .
+       
+
+      
+
+
+    
